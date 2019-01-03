@@ -1,0 +1,20 @@
+#Dockercompose
+version: '3.6'
+services:
+  datab:
+    image: 'mariadb:10.4'
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+    ports:
+      - 30000:80
+  php:
+    build: './docker/php'
+    restart: always
+  adminer:
+    image: 'adminer'
+    restart: always
+    ports:
+      - 50000:80
+    depends_on:
+      - datab

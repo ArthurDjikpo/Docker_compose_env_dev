@@ -15,4 +15,4 @@ Utiliser des commandes linux pour chercher et remplacer des chaines de caractèr
 de sorte à changer le DocumentRoot de l'image Docker.
 
 Vous devez utiliser les Dockerfiles et Docker-Compose pour qu'il soit possible en une commande de créer l'environnement
-pour lancer l'application.
+pour lancer l'application. 
