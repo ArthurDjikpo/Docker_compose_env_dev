@@ -5,16 +5,20 @@ services:
     image: 'mariadb:10.4'
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
     ports:
       - 30000:80
   php:
     build: './docker/php'
+    container_name: php_web
     restart: always
-  adminer:
-    image: 'adminer'
-    restart: always
-    ports:
-      - 50000:80
     depends_on:
       - datab
+    volumes:
+     - ./php/:/var/www/html/
+  adminer:
+    image: 'adminer:4.7'
+    restart: always
+    ports:
+      - 50000:8080
